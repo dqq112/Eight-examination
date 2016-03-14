@@ -1,0 +1,194 @@
+//勾股弦定理计算
+
+import java.io.*;
+
+public class G
+{
+	public static void main(String[] args) throws Exception
+	{
+		//主界面大循环,int恒量为hl
+		//空行变量为kh,变量值为1
+		int hl = 1;
+		int kh = 1;
+		while (hl != 0)
+		{
+			//主界面.mi为常(主)变量
+			//主界面.mia为缓存常(主)变量
+			//主界面.mib为double类型转换int类型后常(主)变量
+			//当mi为1时，运行"已知两直角边求斜边运算"
+			//当mi为2时，运行"已知一条直角边和斜边求另一条直角边运算"
+			//————————————————————————————————————————————————————————
+			//提示
+			System.out.println("请选择您要执行的运算");
+			System.out.println("输入1为'已知两直角边求斜边运算'");
+			System.out.println("输入2为'已知一条直角边和斜边求另一条直角边运算'");
+			//键入mi常(主)变量,缓存变量mi为mia,mib为double转int类型常(主)变量
+			InputStreamReader mi = new InputStreamReader(System.in);
+			BufferedReader mia = new BufferedReader(mi);
+			double mib;
+			mib = Integer.parseInt(mia.readLine());
+			//空行
+			if (kh == 1)
+			{
+				System.out.println();
+				System.out.println();
+				System.out.println();
+			}
+			else
+			{
+				kh = 1;
+			}
+			//判断常(主)变量
+			//子循环.
+			while (mib == 1)
+			{
+				//提示
+				System.out.println("请输入您的两条直角边,并按回车键入");
+				//输入第一个数字,a为键入第一条直角边,aa为第一条直角边缓存变量
+				InputStreamReader a = new InputStreamReader(System.in);
+				BufferedReader aa = new BufferedReader(a);
+				//输入第二个数字,b为键入第二条直角边,ba为第一条直角边缓存变量
+				InputStreamReader b = new InputStreamReader(System.in);
+				BufferedReader ba = new BufferedReader(b);
+				//强制转换double至int
+				//aa转换int类型为aai
+				//ba转换int类型为bai
+				double aai;
+				aai = Integer.parseInt(aa.readLine());
+				double bai;
+				bai = Integer.parseInt(ba.readLine());
+				//以下为计算过程
+				//重新定义aai与bai为aai与bai的乘方形式
+				aai = aai*aai;
+				bai = bai*bai;
+				//c变量为aai与bai相加形式，既平方和
+				double c = aai+bai;
+				//ca变量为c开方，既平方和的开方
+				double ca = Math.sqrt(c);
+				//提示：三边提示
+				//重新定义aai,bai为开方形式
+				aai = Math.sqrt(aai);
+				bai = Math.sqrt(bai);
+				System.out.println("-----------------------------------------------------------------------------");
+				System.out.println("您的第一条直角边为"+aai+"您的第二条直角边为"+bai+"您的斜边长为"+ca);
+				System.out.println("-----------------------------------------------------------------------------");
+				System.out.println();
+				//提示：根号形式提示
+				System.out.println("---------------------------------------------------");
+				System.out.println("您的根号形式为:根号"+c);
+				System.out.println("---------------------------------------------------");
+				System.out.println();
+				//问题：是否要重新计算
+				System.out.println("您是否要继续进行运算,如果需要请按1");
+				//键入计算条件
+				//判断变量,z为键入变量,za为缓存变量,zb为double转int类型变量
+				InputStreamReader z = new InputStreamReader(System.in);
+				BufferedReader za = new BufferedReader(z);
+				double zb;
+				zb = Integer.parseInt(za.readLine());
+				//开始重复
+				if (zb == 1)
+				{
+					if (kh == 1)
+					{
+						System.out.println();
+						System.out.println();
+						System.out.println();
+					}
+					else
+					{
+						kh = 1;
+					}
+				}
+				else
+				{
+					mib = 0;
+					if (kh == 1)
+					{
+						System.out.println();
+						System.out.println();
+						System.out.println();
+					}
+					else
+					{
+						kh = 1;
+					}
+				}
+			}
+			//子循环2
+			while (mib == 2)
+			{
+				//提示
+				System.out.println("请先输入您的一条斜边,再输入您的一条直角边,并按回车键入");
+				//输入第一个数字,d为键入第一条直角边,da为第一条直角边缓存变量
+				InputStreamReader d = new InputStreamReader(System.in);
+				BufferedReader da = new BufferedReader(d);
+				//输入第二个数字,e为键入第二条直角边,ea为第一条直角边缓存变量
+				InputStreamReader e = new InputStreamReader(System.in);
+				BufferedReader ea = new BufferedReader(e);
+				//强制转换double为int
+				//da转换int类型为dai
+				//ea转换int类型为eai
+				double dai;
+				dai = Integer.parseInt(da.readLine());
+				double eai;
+				eai = Integer.parseInt(ea.readLine());
+				//以下为计算过程
+				//重新定义dai与eai为dai与eai的乘方形式
+				dai = dai*dai;
+				eai = eai*eai;
+				//f变量为dai与eai相加形式，既平方差
+				double f = dai-eai;
+				//fa变量为f开方，既平方和的开方
+				double fa = Math.sqrt(f);
+				//提示：三边提示
+				//重新定义aai,bai为开方形式
+				dai = Math.sqrt(dai);
+				eai = Math.sqrt(eai);
+				System.out.println("-----------------------------------------------------------------------------");
+				System.out.println("您的斜边长为"+dai+"您的第一条直角边为"+eai+"您的第二条直角边为"+fa);
+				System.out.println("-----------------------------------------------------------------------------");
+				//提示：根号形式提示
+				System.out.println("---------------------------------------------------");
+				System.out.println("您的根号形式为:根号"+f);
+				System.out.println("---------------------------------------------------");
+				//问题：是否要重新计算
+				System.out.println("您是否要继续进行运算,如果需要请按1");
+				//键入计算条件
+				//判断变量,z为键入变量,za为缓存变量,zb为double转int类型变量
+				InputStreamReader x = new InputStreamReader(System.in);
+				BufferedReader xa = new BufferedReader(x);
+				double xb;
+				xb = Integer.parseInt(xa.readLine());
+				//开始重复
+				if (xb == 1)
+				{
+					if (kh == 1)
+					{
+						System.out.println();
+						System.out.println();
+						System.out.println();
+					}
+					else
+					{
+						kh = 1;
+					}
+				}
+				else
+				{
+					mib = 0;
+					if (kh == 1)
+					{
+						System.out.println();
+						System.out.println();
+						System.out.println();
+					}
+					else
+					{
+						kh = 1;
+					}
+				}
+			}
+		}
+	}
+}
